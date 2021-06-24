@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}MATH FOR CHILD}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Algebra}{1}{}%
+\contentsline {subsection}{\numberline {1.2}Aplication}{1}{}%
+\contentsline {section}{\numberline {2}MATH FOR EDUCATE}{1}{}%
+\contentsline {subsection}{\numberline {2.1}primaly school}{1}{}%
+\contentsline {subsection}{\numberline {2.2}high school}{1}{}%
