@@ -16,6 +16,9 @@ public class ReadCSVFile {
                 NationalInfo nationalInfo = new NationalInfo(nation[0], nation[1], nation[2], nation[3], nation[4], nation[5]);
                 list.add(nationalInfo);
             }
+            for(NationalInfo nationalInfo: list){
+                System.out.println(nationalInfo.toString());
+            }
             bufferedReader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -1,81 +1,39 @@
 package CaseStudyModule2.Furama.Models;
 
-public class Villa extends Services {
-    private String typeOfRoomVilla;
-    private String otherFacilitiesInVilla;
-    private int squareOfVillaPool;
-    private int numberOfFloorsInVilla;
+public class Villa extends Facility{
+    private String roomStandard;
+    private String poolSquare;
+    private String floors;
 
-    public Villa() {
 
+    public Villa(String nameServices, String unableSquare, String rentalCosts, String maxNumber, String rentalType, String roomStandard, String poolSquare, String floors ) {
+        super(nameServices,unableSquare,rentalCosts,maxNumber,rentalType);
+        this.roomStandard = roomStandard;
+        this.poolSquare = poolSquare;
+        this.floors = floors;
     }
 
-    public Villa(String typeOfRoomVilla, String otherFacilitiesInVilla, int squareOfVillaPool, int numberOfFloorsInVilla) {
-        this.typeOfRoomVilla = typeOfRoomVilla;
-        this.otherFacilitiesInVilla = otherFacilitiesInVilla;
-        this.squareOfVillaPool = squareOfVillaPool;
-        this.numberOfFloorsInVilla = numberOfFloorsInVilla;
+    public String getRoomStandard() {
+        return roomStandard;
     }
 
-
-    public Villa(String serviceName, int unableArea, int rentalCosts, int numberOfFloorsInVilla, double rentalCosts1, String typeOfRoomVilla, String otherFacilitiesInVilla, double squareOfVillaPool, int numberOfFloorsInVilla1) {
-        super();
+    public void setRoomStandard(String roomStandard) {
+        this.roomStandard = roomStandard;
     }
 
-    public String getTypeOfRoomVilla() {
-        return typeOfRoomVilla;
+    public String getPoolSquare() {
+        return poolSquare;
     }
 
-    public void setTypeOfRoomVilla(String typeOfRoomVilla) {
-        this.typeOfRoomVilla = typeOfRoomVilla;
+    public void setPoolSquare(String poolSquare) {
+        this.poolSquare = poolSquare;
     }
 
-    public String getOtherFacilitiesInVilla() {
-        return otherFacilitiesInVilla;
+    public String getFloors() {
+        return floors;
     }
 
-    public void setOtherFacilitiesInVilla(String otherFacilitiesInVilla) {
-        this.otherFacilitiesInVilla = otherFacilitiesInVilla;
+    public void setFloors(String floors) {
+        this.floors = floors;
     }
-
-    public int getSquareOfVillaPool() {
-        return squareOfVillaPool;
-    }
-
-    public void setSquareOfVillaPool(int squareOfVillaPool) {
-        this.squareOfVillaPool = squareOfVillaPool;
-    }
-
-    public int getNumberOfFloorsInVilla() {
-        return numberOfFloorsInVilla;
-    }
-
-    public void setNumberOfFloorsInVilla(int numberOfFloorsInVilla) {
-        this.numberOfFloorsInVilla = numberOfFloorsInVilla;
-    }
-
-    public String toString() {
-        Villa villa = new Villa();
-        return villa.getServiceName() + ',' + villa.getUnableArea() + ',' + villa.getRentalCosts() + ',' +
-                villa.getMaxNumberOfMembers() + ',' + villa.getRentalsType() + ',' + villa.getTypeOfRoomVilla() + ',' +
-                villa.getOtherFacilitiesInVilla() + ',' + villa.getSquareOfVillaPool() + ',' +
-                villa.getNumberOfFloorsInVilla();
-
-    }
-
-    @Override
-    public void showInfo() {
-        Villa villa = new Villa();
-        System.out.println("Tên dịch vụ của Villa: " + villa.getServiceName());
-        System.out.println("Diện tích sử dụng của Villa: " + villa.getUnableArea());
-        System.out.println("Chi phí thuê của Villa: " + villa.getRentalCosts());
-        System.out.println("Số lượng người tối đa của Villa: " + villa.getMaxNumberOfMembers());
-        System.out.println("Kiểu thuê của Villa (năm, tháng, ngày, giờ): " + villa.getRentalsType());
-        System.out.println("Tiêu chuẩn phòng của Villa: " + villa.getTypeOfRoomVilla());
-        System.out.println("Tiện nghi khác của Villa: " + villa.getOtherFacilitiesInVilla());
-        System.out.println("Diện tích hồ bơi của villa: " + villa.getSquareOfVillaPool());
-        System.out.println("Số tầng của Villa : " + villa.getNumberOfFloorsInVilla());
-    }
-
-
 }
