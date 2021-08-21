@@ -2,7 +2,7 @@ package CaseStudyModule2.Furama.Controllers;
 
 import java.util.Scanner;
 
-public class BookingManagament {
+public class BookingManagement {
 
     public static void bookingManagement() {
         int choice = -1;

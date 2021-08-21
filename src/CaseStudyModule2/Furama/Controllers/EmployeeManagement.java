@@ -4,9 +4,9 @@ import CaseStudyModule2.Furama.Services.EmployeeServiceImpl;
 
 import java.util.Scanner;
 
-public class EmployeeManagament {
+public class EmployeeManagement {
 
-    public static void employeeManagament() {
+    public static void employeeManagement() {
         int choice = -1;
         do {
             System.out.printf("1. Display list employees\n" +

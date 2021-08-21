@@ -7,7 +7,7 @@ public class FuramaController {
     public static void displayMenu() {
         int choice = -1;
         do {
-            System.out.printf("1. Employee Managament\n" +
+            System.out.printf("1. Employee Management\n" +
                     "2. Customer Management\n" +
                     "3. Facility Management\n" +
                     "4. Booking Management\n" +
@@ -18,19 +18,19 @@ public class FuramaController {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    EmployeeManagament.employeeManagament();
+                    EmployeeManagement.employeeManagement();
                     break;
                 case 2:
-                    CustomerManagament.customerManagement();
+                    CustomerManagement.customerManagement();
                     break;
                 case 3:
-                    FacilityManagament.facilityManagement();
+                    FacilityManagement.facilityManagement();
                     break;
                 case 4:
-                    BookingManagament.bookingManagement();
+                    BookingManagement.bookingManagement();
                     break;
                 case 5:
-                    PromotionManagament.promotionManagement();
+                    PromotionManagement.promotionManagement();
                     break;
                 case 6:
                     System.exit(0);

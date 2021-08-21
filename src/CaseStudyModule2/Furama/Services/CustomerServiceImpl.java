@@ -1,7 +1,6 @@
 package CaseStudyModule2.Furama.Services;
 
 import CaseStudyModule2.Furama.Models.Customer;
-import CaseStudyModule2.Furama.Models.Employee;
 
 import java.util.LinkedList;
 import java.util.Scanner;

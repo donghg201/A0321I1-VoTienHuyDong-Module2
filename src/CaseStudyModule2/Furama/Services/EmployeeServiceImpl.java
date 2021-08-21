@@ -38,13 +38,13 @@ public class EmployeeServiceImpl {
             employeeID = scanner.nextInt();
         } while (findByID(employeeID) != null);
         String a = scanner.nextLine();
-        System.out.println("\tPlease enter name");
+        System.out.print("Please enter name: ");
         String name = scanner.nextLine();
-        System.out.println("\tPlease enter date of birth");
+        System.out.print("Please enter date of birth: ");
         String dathOfBirth = scanner.nextLine();
-        System.out.println("Please enter sex");
+        System.out.print("Please enter sex: ");
         String sex = scanner.nextLine();
-        System.out.println("Please enter CMND");
+        System.out.print("Please enter CMND: ");
         String CMND = scanner.nextLine();
         System.out.println("Please enter phone number");
         String phoneNumber = scanner.nextLine();
