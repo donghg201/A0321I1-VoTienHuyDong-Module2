@@ -9,22 +9,27 @@ public class CustomerManagement {
     public static void customerManagement() {
         int choice = -1;
         do {
-            System.out.printf("1. Display list customers\n" +
+            System.out.printf("-----Customer List Option-----\n" +
+                    "1. Display list customers\n" +
                     "2. Add new customers\n" +
                     "3. Edit customers\n" +
-                    "4. Return main menu\n"
+                    "4. Return main menu\n" +
+                    "------------<>------------\n"
             );
+            System.out.print("Enter your option: ");
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
+            System.out.println();
+            CustomerServiceImpl customerService = new CustomerServiceImpl();
             switch (choice) {
                 case 1:
-                    CustomerServiceImpl.displayCustomerList();
+                    customerService.displayCustomerList();
                     break;
                 case 2:
-                    CustomerServiceImpl.addNewCustomer();
+                    customerService.addNewCustomer();
                     break;
                 case 3:
-                    CustomerServiceImpl.editCustomer();
+                    customerService.editCustomer();
                     break;
                 case 4:
                     FuramaController.displayMenu();

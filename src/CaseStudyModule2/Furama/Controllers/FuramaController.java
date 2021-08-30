@@ -7,15 +7,19 @@ public class FuramaController {
     public static void displayMenu() {
         int choice = -1;
         do {
-            System.out.printf("1. Employee Management\n" +
+            System.out.printf("-----Furama List Option-----\n" +
+                    "1. Employee Management\n" +
                     "2. Customer Management\n" +
                     "3. Facility Management\n" +
                     "4. Booking Management\n" +
                     "5. Promotion Management\n" +
-                    "6. Exit\n"
+                    "6. Exit\n" +
+                    "------------<>------------\n"
             );
+            System.out.print("Enter your option: ");
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
+            System.out.println();
             switch (choice) {
                 case 1:
                     EmployeeManagement.employeeManagement();

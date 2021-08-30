@@ -1,14 +1,15 @@
 package CaseStudyModule2.Furama.Models;
 
 public class Booking {
-    private String bookingID;
+    private int bookingID;
     private String dayStart;
     private String dayEnd;
-    private String customerID;
+    private int customerID;
     private String serviceName;
     private String serviceType;
 
-    public Booking(String bookingID, String dayStart, String dayEnd, String customerID, String serviceName, String serviceType) {
+    public Booking(int bookingID, String dayStart, String dayEnd, int customerID, String serviceName,
+                   String serviceType) {
         this.bookingID = bookingID;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
@@ -17,11 +18,11 @@ public class Booking {
         this.serviceType = serviceType;
     }
 
-    public String getBookingID() {
+    public int getBookingID() {
         return bookingID;
     }
 
-    public void setBookingID(String bookingID) {
+    public void setBookingID(int bookingID) {
         this.bookingID = bookingID;
     }
 
@@ -41,11 +42,11 @@ public class Booking {
         this.dayEnd = dayEnd;
     }
 
-    public String getCustomerID() {
+    public int getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 

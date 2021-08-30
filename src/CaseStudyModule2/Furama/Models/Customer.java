@@ -23,6 +23,18 @@ public class Customer extends Person {
         this.address = address;
     }
 
+    public String getCustomer(){
+        return getCustomerID() + ","
+                + getName() + ","
+                + getDathOfBirth() + ","
+                + getSex() + ","
+                + getCMND() + ","
+                + getPhoneNumber() + ","
+                + getEmail() + ","
+                + getCustomerType() + ","
+                + getAddress();
+    }
+
     public int getCustomerID() {
         return customerID;
     }

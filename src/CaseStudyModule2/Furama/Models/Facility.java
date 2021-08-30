@@ -3,13 +3,15 @@ package CaseStudyModule2.Furama.Models;
 import java.util.Objects;
 
 public abstract class Facility {
+    private String idFacility;
     private String nameServices;
     private String unableSquare;
     private String rentalCosts;
     private String maxNumber;
     private String rentalType;
 
-    public Facility(String nameServices, String unableSquare, String rentalCosts, String maxNumber, String rentalType) {
+    public Facility(String idFacility, String nameServices, String unableSquare, String rentalCosts, String maxNumber, String rentalType) {
+        this.idFacility = idFacility;
         this.nameServices = nameServices;
         this.unableSquare = unableSquare;
         this.rentalCosts = rentalCosts;
@@ -17,21 +19,12 @@ public abstract class Facility {
         this.rentalType = rentalType;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Facility facility = (Facility) o;
-        return Objects.equals(nameServices, facility.nameServices) &&
-                Objects.equals(unableSquare, facility.unableSquare) &&
-                Objects.equals(rentalCosts, facility.rentalCosts) &&
-                Objects.equals(maxNumber, facility.maxNumber) &&
-                Objects.equals(rentalType, facility.rentalType);
+    public String getIdFacility() {
+        return idFacility;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(nameServices, unableSquare, rentalCosts, maxNumber, rentalType);
+    public void setIdFacility(String idFacility) {
+        this.idFacility = idFacility;
     }
 
     public String getNameServices() {
