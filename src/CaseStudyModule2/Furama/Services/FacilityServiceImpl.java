@@ -1,9 +1,9 @@
 package CaseStudyModule2.Furama.Services;
 
 import CaseStudyModule2.Furama.Controllers.FacilityManagement;
-import CaseStudyModule2.Furama.Controllers.FuramaController;
 import CaseStudyModule2.Furama.Models.*;
 import CaseStudyModule2.Furama.Utils.ReadAndWriteFile;
+import CaseStudyModule2.Furama.Utils.RegexData;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -11,9 +11,17 @@ import java.util.Set;
 import java.util.Scanner;
 
 public class FacilityServiceImpl implements FacilityService {
+
+    public static final String REGEX_ID_VILLA = "(SVVL)[-][\\d]{4}";
+    public static final String REGEX_ID_HOUSE = "(SVHO)[-][\\d]{4}";
+    public static final String REGEX_ID_ROOM = "(SVRO)[-][\\d]{4}";
+    public static final String REGEX_STR = "[A-Z][a-z]+";
+    public static final String REGEX_AREA = "^([3-9]\\d|[1-9]\\d{2,})$";
+    public static final String REGEX_COST = "^^\\d*[1-9]\\d*$";
+    public static final String REGEX_MAX = "^[1-9]|([1][0-9])|(20)$";
+
     static LinkedHashMap<Facility, Integer> linkedHashMap = new LinkedHashMap<>();
     static Scanner scanner = new Scanner(System.in);
-
 
     public static void upValue(Facility facility) {
         int value = 1;
@@ -86,24 +94,15 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void addVilla() {
         try {
-            System.out.print("Please enter id facility: ");
-            String idFacility = scanner.nextLine();
-            System.out.print("Please enter service name: ");
-            String nameServicesVilla = scanner.nextLine();
-            System.out.print("Please enter unable square: ");
-            String unableSquareVilla = scanner.nextLine();
-            System.out.print("Please enter rental costs: ");
-            String rentalCostsVilla = scanner.nextLine();
-            System.out.print("Please enter max number: ");
-            String maxNumberVilla = scanner.nextLine();
-            System.out.print("Please enter rental type: ");
-            String rentalTypeVilla = scanner.nextLine();
-            System.out.print("Please enter room standard: ");
-            String roomStandardVilla = scanner.nextLine();
-            System.out.print("Please enter pool square: ");
-            String poolSquareVilla = scanner.nextLine();
-            System.out.print("Please enter floors: ");
-            String floorsVilla = scanner.nextLine();
+            String idFacility = inputIdVilla();
+            String nameServicesVilla = inputName();
+            String unableSquareVilla = inputArea();
+            String rentalCostsVilla = inputCost();
+            String maxNumberVilla = inputMaxNumber();
+            String rentalTypeVilla = inputType();
+            String roomStandardVilla = inputStandard();
+            String poolSquareVilla = inputSquare();
+            String floorsVilla = inputFloor();
             System.out.println();
             Villa villa = new Villa(idFacility, nameServicesVilla, unableSquareVilla, rentalCostsVilla, maxNumberVilla,
                     rentalTypeVilla, roomStandardVilla, poolSquareVilla, floorsVilla);
@@ -121,22 +120,14 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void addHouse() {
         try {
-            System.out.print("Please enter id facility: ");
-            String idFacility = scanner.nextLine();
-            System.out.print("Please enter service name: ");
-            String nameServicesHouse = scanner.nextLine();
-            System.out.print("Please enter unable square: ");
-            String unableSquareHouse = scanner.nextLine();
-            System.out.print("Please enter rental costs: ");
-            String rentalCostsHouse = scanner.nextLine();
-            System.out.print("Please enter max number: ");
-            String maxNumberHouse = scanner.nextLine();
-            System.out.print("Please enter rental type: ");
-            String rentalTypeHouse = scanner.nextLine();
-            System.out.print("Please enter room standard: ");
-            String roomStandardHouse = scanner.nextLine();
-            System.out.print("Please enter floors: ");
-            String floorsHouse = scanner.nextLine();
+            String idFacility = inputIdHouse();
+            String nameServicesHouse = inputName();
+            String unableSquareHouse = inputArea();
+            String rentalCostsHouse = inputCost();
+            String maxNumberHouse = inputMaxNumber();
+            String rentalTypeHouse = inputType();
+            String roomStandardHouse = inputStandard();
+            String floorsHouse = inputFloor();
             System.out.println();
             House house = new House(idFacility, nameServicesHouse, unableSquareHouse, rentalCostsHouse, maxNumberHouse,
                     rentalTypeHouse, roomStandardHouse, floorsHouse);
@@ -154,20 +145,13 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void addRoom() {
         try {
-            System.out.print("Please enter id facility: ");
-            String idFacility = scanner.nextLine();
-            System.out.print("Please enter service name: ");
-            String nameServicesRoom = scanner.nextLine();
-            System.out.print("Please enter unable square: ");
-            String unableSquareRoom = scanner.nextLine();
-            System.out.print("Please enter rental costs: ");
-            String rentalCostsRoom = scanner.nextLine();
-            System.out.print("Please enter max number: ");
-            String maxNumberRoom = scanner.nextLine();
-            System.out.print("Please enter rental type: ");
-            String rentalTypeRoom = scanner.nextLine();
-            System.out.print("Please enter room standard: ");
-            String freeServiceBonusRoom = scanner.nextLine();
+            String idFacility = inputIdRoom();
+            String nameServicesRoom = inputName();
+            String unableSquareRoom = inputArea();
+            String rentalCostsRoom = inputCost();
+            String maxNumberRoom = inputMaxNumber();
+            String rentalTypeRoom = inputType();
+            String freeServiceBonusRoom = inputStandard();
             System.out.println();
             Room room = new Room(idFacility, nameServicesRoom, unableSquareRoom, rentalCostsRoom, maxNumberRoom,
                     rentalTypeRoom, freeServiceBonusRoom);
@@ -180,5 +164,60 @@ public class FacilityServiceImpl implements FacilityService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private String inputIdVilla() {
+        System.out.print("Please enter id facility: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_ID_VILLA, "You entered wrong format! The format is SVVL-XXXX.");
+    }
+
+    private String inputIdHouse() {
+        System.out.print("Please enter id facility: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_ID_HOUSE, "You entered wrong format! The format is SVHO-XXXX.");
+    }
+
+    private String inputIdRoom() {
+        System.out.print("Please enter id facility: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_ID_ROOM, "You entered wrong format! The format is SVRO-XXXX.");
+    }
+
+    private String inputName() {
+        System.out.print("Please enter service name: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_STR, "You entered wrong format! The format is to be capitalized first letter.");
+    }
+
+    private String inputArea() {
+        System.out.print("Please enter unable square: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_AREA, "You entered wrong format! The format is more than 30.");
+    }
+
+    private String inputCost() {
+        System.out.print("Please enter rental costs: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_COST, "You entered wrong format! The format is more than 0.");
+    }
+
+    private String inputMaxNumber() {
+        System.out.print("Please enter max number: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_MAX, "You entered wrong format! The format is more than 0 and less than 20.");
+    }
+
+    private String inputType() {
+        System.out.print("Please enter rental type: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_STR, "You entered wrong format! The format is to be capitalized first letter.");
+    }
+
+    private String inputStandard() {
+        System.out.print("Please enter room standard: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_STR, "You entered wrong format! The format is to be capitalized first letter.");
+    }
+
+    private String inputSquare() {
+        System.out.print("Please enter pool square: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_AREA, "You entered wrong format! The format is more than 0.");
+    }
+
+    private String inputFloor() {
+        System.out.print("Please enter floors: ");
+        return RegexData.regexStr(scanner.nextLine(), REGEX_COST, "You entered wrong format! The format is more than 0.");
     }
 }

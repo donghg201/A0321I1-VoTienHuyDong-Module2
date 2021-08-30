@@ -2,6 +2,7 @@ package CaseStudyModule2.Furama.Services;
 
 import CaseStudyModule2.Furama.Models.Employee;
 import CaseStudyModule2.Furama.Utils.ReadAndWriteFile;
+import CaseStudyModule2.Furama.Utils.RegexData;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.util.Scanner;
 public class EmployeeServiceImpl implements EmployeeService {
     private static List<Employee> employeeList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    public static String REGEX_BIRTHDAY = "(^(((0[1-9]|1[0-9]|2[0-8])[\\/](0[1-9]|1[012]))|((29|30|31)[\\/](0[13578]|1[02]))|((29|30)[\\/](0[4,6,9]|11)))[\\/](19|[2-9][0-9])\\d\\d$)|(^29[\\/]02[\\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)";
 
     public void displayEmployeeList() {
         try {
@@ -50,7 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.print("Please enter name: ");
             String name = scanner.nextLine();
             System.out.print("Please enter date of birth: ");
-            String dathOfBirth = scanner.nextLine();
+            String dathOfBirth = RegexData.regexAge(scanner.nextLine(), REGEX_BIRTHDAY);
             System.out.print("Please enter sex: ");
             String sex = scanner.nextLine();
             System.out.print("Please enter CMND: ");
