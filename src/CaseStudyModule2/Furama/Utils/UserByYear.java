@@ -10,4 +10,5 @@ public class UserByYear {
         LocalDate year = LocalDate.parse(o1.getDayStart(),dateTimeFormatter);
         return year.getYear();
     }
+
 }

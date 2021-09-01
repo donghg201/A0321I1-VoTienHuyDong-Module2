@@ -5,10 +5,7 @@ import CaseStudyModule2.Furama.Models.*;
 import CaseStudyModule2.Furama.Utils.ReadAndWriteFile;
 import CaseStudyModule2.Furama.Utils.RegexData;
 
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Set;
-import java.util.Scanner;
+import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
 
