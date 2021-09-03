@@ -1,6 +1,8 @@
 package FinalExamTwice.Model;
 
-public abstract class SanPham {
+import java.io.Serializable;
+
+public abstract class SanPham implements Serializable {
     private int idSanPham;
     private String maSanPham;
     private String tenSanPham;

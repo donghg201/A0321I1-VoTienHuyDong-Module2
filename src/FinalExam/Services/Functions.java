@@ -107,14 +107,6 @@ public class Functions {
         }
     }
 
-    public BenhAn findByMaBenhAn(String maBenhAn) {
-        for (BenhAn benhAn : benhAnList) {
-            if (benhAn.getMaBenhAn() == maBenhAn) {
-                return benhAn;
-            }
-        }
-        return null;
-    }
 
     public int soThuTu() {
         if (benhAnList.isEmpty()) {

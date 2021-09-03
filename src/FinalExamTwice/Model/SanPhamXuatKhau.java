@@ -1,6 +1,8 @@
 package FinalExamTwice.Model;
 
-public class SanPhamXuatKhau extends SanPham {
+import java.io.Serializable;
+
+public class SanPhamXuatKhau extends SanPham implements Serializable {
     private String giaXuatKhau;
     private String quocGiaXuatKhau;
 
@@ -30,7 +32,7 @@ public class SanPhamXuatKhau extends SanPham {
 
     @Override
     public String toString() {
-        return "SanPhamNhapKhau{" + super.getIdSanPham() + ", " +
+        return "SanPhamXuatKhau{" + super.getIdSanPham() + ", " +
                 super.getMaSanPham() + ", " +
                 super.getTenSanPham() + ", " +
                 super.getGiaBan() + ", " +

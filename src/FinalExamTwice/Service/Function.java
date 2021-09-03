@@ -1,10 +1,12 @@
 package FinalExamTwice.Service;
 
+import FinalExamTwice.Controller.Main;
 import FinalExamTwice.Model.SanPham;
 import FinalExamTwice.Model.SanPhamNhapKhau;
 import FinalExamTwice.Model.SanPhamXuatKhau;
 import FinalExamTwice.Utils.ReadAndWriteFile;
 import FinalExamTwice.Utils.Regex;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,28 +35,80 @@ public class Function {
         String soLuong = inputSoLuong();
         System.out.print("Vui long nhap nha san xuat: ");
         String nhaSanXuat = scanner.nextLine();
-        int choose = 0;
         System.out.print("Vui long chon the loai san pham:\n" +
                 "1. Nhap khau.\n" +
                 "2. Xuat khau.\n" +
                 "Chon: ");
-        switch (choose) {
+        int loaiSanPham = scanner.nextInt();
+        switch (loaiSanPham) {
             case 1:
+                String a = scanner.nextLine();
                 String giaNhapKhau = inputGiaNhapKhau();
+
                 System.out.print("Vui long nhap tinh thanh nhap: ");
                 String tinhThanhNhap = scanner.nextLine();
                 String thueNhapKhau = inputThueNhapKhau();
                 sanPhamList.add(new SanPhamNhapKhau(idSanPham, maSanPham, tenSanPham, giaBan, soLuong, nhaSanXuat,
                         giaNhapKhau, tinhThanhNhap, thueNhapKhau));
                 ReadAndWriteFile.write(sanPhamList, "C:\\A0321I1_VoTienHuyDong\\Module 2\\src\\FinalExamTwice\\Data\\products.csv");
+                break;
             case 2:
+                String b = scanner.nextLine();
                 String giaXuatKhau = inputGiaXuatKhau();
                 System.out.print("Vui long nhap quoc gia xuat khau: ");
                 String quocGiaXuatKhau = scanner.nextLine();
                 sanPhamList.add(new SanPhamXuatKhau(idSanPham, maSanPham, tenSanPham, giaBan, soLuong, nhaSanXuat, giaXuatKhau
                         , quocGiaXuatKhau));
                 ReadAndWriteFile.write(sanPhamList, "C:\\A0321I1_VoTienHuyDong\\Module 2\\src\\FinalExamTwice\\Data\\products.csv");
+                break;
         }
+    }
+
+    public void hienThi() {
+        sanPhamList = (List<SanPham>) ReadAndWriteFile.read("C:\\A0321I1_VoTienHuyDong\\Module 2\\src\\FinalExamTwice\\Data\\products.csv");
+        for (SanPham sanPham : sanPhamList) {
+            System.out.println(sanPham.toString());
+        }
+    }
+
+    public void xoa() throws NotFoundProductException {
+        String maSanPham = inputMaSanPham();
+        checkMaSanPham(maSanPham);
+        System.out.println("Ban muon xoa san pham: \n" +
+                "1. Co\n" +
+                "2. Khong\n");
+        int choose = scanner.nextInt();
+        switch (choose) {
+            case 1:
+                for (int i = 0; i < sanPhamList.size(); i++) {
+                    if (sanPhamList.get(i).getMaSanPham().equals(maSanPham)) {
+                        sanPhamList.remove(i);
+                    }
+                }
+                System.out.println("Xoa thanh cong.");
+                ReadAndWriteFile.write(sanPhamList, "C:\\A0321I1_VoTienHuyDong\\Module 2\\src\\FinalExamTwice\\Data\\products.csv");
+                hienThi();
+                System.out.println("----------<>----------");
+                Main.displayMenu();
+                break;
+            case 2:
+                Main.displayMenu();
+                break;
+        }
+
+    }
+
+    public Boolean checkMaSanPham(String maSanPham) throws NotFoundProductException {
+        Boolean check = false;
+        for (SanPham sanPham : sanPhamList) {
+            if (sanPham.getMaSanPham() == maSanPham) {
+                return check = true;
+            } else return check;
+        }
+        if (check == false) {
+            throw new NotFoundProductException("San pham khong ton tai!");
+        }
+        return null;
     }
 
 

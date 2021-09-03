@@ -1,6 +1,8 @@
 package FinalExamTwice.Model;
 
-public class SanPhamNhapKhau extends SanPham {
+import java.io.Serializable;
+
+public class SanPhamNhapKhau extends SanPham implements Serializable {
     private String giaNhapKhau;
     private String tinhThanhNhap;
     private String thueNhapKhau;
