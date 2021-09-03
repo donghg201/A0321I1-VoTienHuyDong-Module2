@@ -6,7 +6,6 @@ import FinalExamTwice.Model.SanPhamNhapKhau;
 import FinalExamTwice.Model.SanPhamXuatKhau;
 import FinalExamTwice.Utils.ReadAndWriteFile;
 import FinalExamTwice.Utils.Regex;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +68,7 @@ public class Function {
         for (SanPham sanPham : sanPhamList) {
             System.out.println(sanPham.toString());
         }
+        System.out.println("----------<>----------");
     }
 
     public void xoa() throws NotFoundProductException {
@@ -96,6 +96,20 @@ public class Function {
                 break;
         }
 
+    }
+
+    public void timKiem() throws NotFoundProductException {
+        System.out.print("Vui long nhap ma san pham hoac ten san pham: ");
+        String search = scanner.nextLine();
+        for (int i = 0; i < sanPhamList.size(); i++) {
+            if (search.equals(sanPhamList.get(i).getMaSanPham())) {
+                System.out.println(sanPhamList.get(i).toString());
+            }
+            if (search.equals(sanPhamList.get(i).getTenSanPham())) {
+                System.out.println(sanPhamList.get(i).toString());
+            }
+        }
+        System.out.println("----------<>----------");
     }
 
     public Boolean checkMaSanPham(String maSanPham) throws NotFoundProductException {

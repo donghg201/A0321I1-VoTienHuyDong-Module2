@@ -34,7 +34,7 @@ public class Main {
                     function.hienThi();
                     break;
                 case 4:
-
+                    function.timKiem();
                     break;
                 case 5:
                     System.exit(0);
