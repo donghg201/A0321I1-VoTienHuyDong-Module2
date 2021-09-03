@@ -1,14 +1,21 @@
 package FinalExam.Models;
 
-public class BenhAnVip extends BenhAn {
+import java.io.Serializable;
+
+public class BenhAnVip extends BenhAn implements Serializable {
     private String loaiVip;
     private String thoiHanVip;
 
-    public BenhAnVip(int soThuTu, String maBenhAn, String tenBenhNhan,
+    public BenhAnVip(int soThuTu, String maBenhAn, String maBenhNhan, String tenBenhNhan,
                      String ngayNhapVien, String ngayRaVien, String lyDoNhapVien, String loaiVip, String thoiHanVip, String hanVip) {
-        super(soThuTu, maBenhAn, tenBenhNhan, ngayNhapVien, ngayRaVien, lyDoNhapVien);
+        super(soThuTu, maBenhAn, maBenhNhan, tenBenhNhan, ngayNhapVien, ngayRaVien, lyDoNhapVien);
         this.loaiVip = loaiVip;
         this.thoiHanVip = thoiHanVip;
+    }
+
+    public BenhAnVip(int soThuTu, String maBenhAn, String maBenhNhan, String tenBenhNhan,
+                     String ngayNhapVien, String ngayRaVien, String lyDoNhapVien) {
+        super(soThuTu, maBenhAn, maBenhNhan, tenBenhNhan, ngayNhapVien, ngayRaVien, lyDoNhapVien);
     }
 
     public String getLoaiVip() {
@@ -30,8 +37,13 @@ public class BenhAnVip extends BenhAn {
     @Override
     public String toString() {
         return "BenhAnVip{" +
-                "loaiVip='" + loaiVip + '\'' +
-                ", thoiHanVip='" + thoiHanVip + '\'' +
+                getSoThuTu() + ", " +
+                getMaBenhAn() + ", " +
+                getMaBenhNhan() + ", " +
+                getTenBenhNhan() + ", " +
+                getNgayNhapVien() + ", " +
+                getNgayRaVien() + ", " +
+                getLyDoNhapVien() +
                 '}';
     }
 }

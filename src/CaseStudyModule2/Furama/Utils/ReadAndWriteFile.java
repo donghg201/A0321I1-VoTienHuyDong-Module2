@@ -45,6 +45,9 @@ public class ReadAndWriteFile {
         try {
             fileInputStream = new FileInputStream(diaChi);
             objectInputStream = new ObjectInputStream(fileInputStream);
+
+            object = objectInputStream.readObject();
+            return object;
         } catch (Exception e) {
             e.printStackTrace();
         }

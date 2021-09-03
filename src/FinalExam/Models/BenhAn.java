@@ -1,20 +1,32 @@
 package FinalExam.Models;
 
-public abstract class BenhAn {
+import java.io.Serializable;
+
+public abstract class BenhAn implements Serializable {
     private int soThuTu;
     private String maBenhAn;
+    private String maBenhNhan;
     private String tenBenhNhan;
     private String ngayNhapVien;
     private String ngayRaVien;
     private String lyDoNhapVien;
 
-    public BenhAn(int soThuTu, String maBenhAn, String tenBenhNhan, String ngayNhapVien, String ngayRaVien, String lyDoNhapVien) {
+    public BenhAn(int soThuTu, String maBenhAn, String maBenhNhan, String tenBenhNhan, String ngayNhapVien, String ngayRaVien, String lyDoNhapVien) {
         this.soThuTu = soThuTu;
         this.maBenhAn = maBenhAn;
+        this.maBenhNhan = maBenhNhan;
         this.tenBenhNhan = tenBenhNhan;
         this.ngayNhapVien = ngayNhapVien;
         this.ngayRaVien = ngayRaVien;
         this.lyDoNhapVien = lyDoNhapVien;
+    }
+
+    public String getMaBenhNhan() {
+        return maBenhNhan;
+    }
+
+    public void setMaBenhNhan(String maBenhNhan) {
+        this.maBenhNhan = maBenhNhan;
     }
 
     public int getSoThuTu() {
@@ -70,6 +82,7 @@ public abstract class BenhAn {
         return "BenhAn{" +
                 "soThuTu=" + soThuTu +
                 ", maBenhAn='" + maBenhAn + '\'' +
+                ", maBenhNhan='" + maBenhNhan + '\'' +
                 ", tenBenhNhan='" + tenBenhNhan + '\'' +
                 ", ngayNhapVien='" + ngayNhapVien + '\'' +
                 ", ngayRaVien='" + ngayRaVien + '\'' +

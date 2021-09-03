@@ -1,16 +1,16 @@
 package FinalExam.Controller;
 
 import FinalExam.Services.Functions;
-import bai17_BinaryFileAndSerialization.bai_tap.ProductManagement.Function;
+import FinalExam.Services.NotFoundMedicalRecordException;
 
 import java.util.Scanner;
 
 public class MainController {
-    public static void displayMenu() {
+    public static void displayMenu() throws NotFoundMedicalRecordException {
         int choice = -1;
         do {
             System.out.printf("--CHUONG TRINH QUAN LY BENH AN-–\n" +
-                    "Chon chuc nang theo so (de tiep tuc): " +
+                    "Chon chuc nang theo so (de tiep tuc): \n" +
                     "1. Them moi\n" +
                     "2. Xoa\n" +
                     "3. Xem danh sach cac benh an\n" +
@@ -27,17 +27,20 @@ public class MainController {
                     functions.themMoi();
                     break;
                 case 2:
-//                    functions.xoa();
+                    functions.xoa();
                     break;
                 case 3:
                     functions.displayList();
                     break;
                 case 4:
-
                     System.exit(0);
             }
 
         } while (true);
+    }
+
+    public static void main(String[] args) throws NotFoundMedicalRecordException {
+        displayMenu();
     }
 }
 

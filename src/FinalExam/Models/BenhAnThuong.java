@@ -1,13 +1,21 @@
 package FinalExam.Models;
 
-public class BenhAnThuong extends BenhAn {
+import java.io.Serializable;
+
+public class BenhAnThuong extends BenhAn implements Serializable {
     private String phiNamVien;
 
-    public BenhAnThuong(int soThuTu, String maBenhAn, String tenBenhNhan,
-                        String ngayNhapVien, String ngayRaVien, String lyDoNhapVien, String phiNamVien, String benhAn) {
-        super(soThuTu, maBenhAn, tenBenhNhan, ngayNhapVien, ngayRaVien, lyDoNhapVien);
+    public BenhAnThuong(int soThuTu, String maBenhAn, String maBenhNhan, String tenBenhNhan,
+                        String ngayNhapVien, String ngayRaVien, String lyDoNhapVien, String phiNamVien) {
+        super(soThuTu, maBenhAn, maBenhNhan, tenBenhNhan, ngayNhapVien, ngayRaVien, lyDoNhapVien);
         this.phiNamVien = phiNamVien;
     }
+
+    public BenhAnThuong(int soThuTu, String maBenhAn, String maBenhNhan, String tenBenhNhan,
+                        String ngayNhapVien, String ngayRaVien, String lyDoNhapVien) {
+        super(soThuTu, maBenhAn, maBenhNhan, tenBenhNhan, ngayNhapVien, ngayRaVien, lyDoNhapVien);
+    }
+
 
     public String getPhiNamVien() {
         return phiNamVien;
@@ -19,8 +27,13 @@ public class BenhAnThuong extends BenhAn {
 
     @Override
     public String toString() {
-        return "BenhAnThuong{" +
-                "phiNamVien='" + phiNamVien + '\'' +
+        return "BenhAnThuong{" + getSoThuTu() + ", " +
+                getMaBenhAn() + ", " +
+                getMaBenhNhan() + ", " +
+                getTenBenhNhan() + ", " +
+                getNgayNhapVien() + ", " +
+                getNgayRaVien() + ", " +
+                getLyDoNhapVien() +
                 '}';
     }
 }
